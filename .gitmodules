@@ -1,0 +1,6 @@
+[submodule ".devcontainer"]
+	path = .devcontainer
+	url = git@github.com:hayatoshibahara/.devcontainer
+[submodule "micro_diffusion"]
+	path = micro_diffusion
+	url = git@github.com:SonyResearch/micro_diffusion.git

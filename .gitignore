@@ -1,3 +1,4 @@
 .env
-.devcontainer
-micro_diffusion
+debug.log
+trained_models
+tensorboard_logs
