@@ -1,0 +1,862 @@
+🟩 Python 3.12.11
+🟩 Fri Dec  5 16:53:34 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.163.01             Driver Version: 550.163.01     CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4090        Off |   00000000:01:00.0 Off |                  Off |
+|  0%   34C    P8             13W /  450W |      68MiB /  24564MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
++-----------------------------------------------------------------------------------------+
+
+🟦 matplotlib data path: /opt/miniconda/envs/py312/lib/python3.12/site-packages/matplotlib/mpl-data
+🟦 CONFIGDIR=/root/.config/matplotlib
+🟦 interactive is False
+🟦 platform is linux
+🟦 CACHEDIR=/root/.cache/matplotlib
+🟦 Using fontManager instance from /root/.cache/matplotlib/fontlist-v390.json
+🟦 Popen(['git', 'version'], cwd=/workspaces/micro_diffusion, stdin=None, shell=False, universal_newlines=False)
+🟦 Popen(['git', 'version'], cwd=/workspaces/micro_diffusion, stdin=None, shell=False, universal_newlines=False)
+🟦 Trying paths: ['/root/.docker/config.json', '/root/.dockercfg']
+🟦 No config file found
+🟩 Setting seed to 18
+🟩 PyTorch 2.6.0+cu124
+🟩 Transformers 4.56.2
+🟩 DATA_DIR='/root/.cache/micro_diffusion/data'
+🟩 MODEL_DIR='/root/.cache/micro_diffusion/models'
+🟩 DiTを初期化 input_size=32 patch_size=2 in_channels=4 dim=512 depth=16 head_dim=32 multiple_of=256 caption_channels=1024 pos_interp_scale=1.0 norm_eps=1e-06 depth_init=True qkv_multipliers=array([0.5       , 0.53333333, 0.56666667, 0.6       , 0.63333333,
+       0.66666667, 0.7       , 0.73333333, 0.76666667, 0.8       ,
+       0.83333333, 0.86666667, 0.9       , 0.93333333, 0.96666667,
+       1.        ]) ffn_multipliers=array([0.5       , 0.73333333, 0.96666667, 1.2       , 1.43333333,
+       1.66666667, 1.9       , 2.13333333, 2.36666667, 2.6       ,
+       2.83333333, 3.06666667, 3.3       , 3.53333333, 3.76666667,
+       4.        ]) use_patch_mixer=True patch_mixer_depth=4 patch_mixer_dim=512 patch_mixer_qkv_ratio=1.0 patch_mixer_mlp_ratio=4.0 use_bias=False num_experts=8 expert_capacity=2.0 experts_every_n=2
+🟦 self.base_size=16
+🟩 CaptionProjectionを初期化 in_channels=1024 hidden_size=512 act_layer=<function DiT.__init__.<locals>.<lambda> at 0x7e4457605940> norm_layer=LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+🟩 MLPを初期化 in_features=1024 hidden_features=512 out_features=512 act_layer=<function DiT.__init__.<locals>.<lambda> at 0x7e4457605940> norm_layer=LayerNorm((512,), eps=1e-06, elementwise_affine=True) bias=True
+🟩 AttentionBlockPromptEmbeddingを初期化 dim=512 head_dim=32 mlp_ratio=4.0 multiple_of=256 norm_eps=1e-06 use_bias=False
+🟦 self.num_heads=16
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=None
+🟦 self.head_dim=32
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=2048 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=1365
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=1536
+🟩 MLPを初期化 in_features=512 hidden_features=512 out_features=512 act_layer=<function DiT.__init__.<locals>.<lambda> at 0x7e4457605940> norm_layer=LayerNorm((512,), eps=1e-06, elementwise_affine=True) bias=True
+🟦 expert_blocks_idx=[1, 3]
+🟦 is_moe_block=[False, True, False, True]
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=4.0 qkv_ratio=1.0 multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=False layer_id=0 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=512
+🟦 mlp_hidden_dim=2048
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=2048 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=1365
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=1536
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=4.0 qkv_ratio=1.0 multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=False layer_id=0 num_layers=16 compress_xattn=False use_bias=False moe_block=True num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=512
+🟦 mlp_hidden_dim=2048
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardECMoeを初期化 num_experts=8 expert_capacity=2.0 dim=512 hidden_dim=2048 multiple_of=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=4.0 qkv_ratio=1.0 multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=False layer_id=0 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=512
+🟦 mlp_hidden_dim=2048
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=2048 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=1365
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=1536
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=4.0 qkv_ratio=1.0 multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=False layer_id=0 num_layers=16 compress_xattn=False use_bias=False moe_block=True num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=512
+🟦 mlp_hidden_dim=2048
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardECMoeを初期化 num_experts=8 expert_capacity=2.0 dim=512 hidden_dim=2048 multiple_of=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(0.5) qkv_ratio=np.float64(0.5) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=0 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=256
+🟦 mlp_hidden_dim=256
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=8 qkv_bias=False norm_eps=1e-06 hidden_dim=256
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=256 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=170
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(0.7333333333333334) qkv_ratio=np.float64(0.5333333333333333) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=1 num_layers=16 compress_xattn=False use_bias=False moe_block=True num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=320
+🟦 mlp_hidden_dim=375
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=10 qkv_bias=False norm_eps=1e-06 hidden_dim=320
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardECMoeを初期化 num_experts=8 expert_capacity=2.0 dim=512 hidden_dim=375 multiple_of=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(0.9666666666666667) qkv_ratio=np.float64(0.5666666666666667) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=2 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=320
+🟦 mlp_hidden_dim=494
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=10 qkv_bias=False norm_eps=1e-06 hidden_dim=320
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=494 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=329
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=512
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(1.2) qkv_ratio=np.float64(0.6) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=3 num_layers=16 compress_xattn=False use_bias=False moe_block=True num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=320
+🟦 mlp_hidden_dim=614
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=10 qkv_bias=False norm_eps=1e-06 hidden_dim=320
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardECMoeを初期化 num_experts=8 expert_capacity=2.0 dim=512 hidden_dim=614 multiple_of=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(1.4333333333333333) qkv_ratio=np.float64(0.6333333333333333) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=4 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=384
+🟦 mlp_hidden_dim=733
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=12 qkv_bias=False norm_eps=1e-06 hidden_dim=384
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=733 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=488
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=512
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(1.6666666666666667) qkv_ratio=np.float64(0.6666666666666666) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=5 num_layers=16 compress_xattn=False use_bias=False moe_block=True num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=384
+🟦 mlp_hidden_dim=853
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=12 qkv_bias=False norm_eps=1e-06 hidden_dim=384
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardECMoeを初期化 num_experts=8 expert_capacity=2.0 dim=512 hidden_dim=853 multiple_of=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(1.9) qkv_ratio=np.float64(0.7) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=6 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=384
+🟦 mlp_hidden_dim=972
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=12 qkv_bias=False norm_eps=1e-06 hidden_dim=384
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=972 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=648
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=768
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(2.1333333333333333) qkv_ratio=np.float64(0.7333333333333334) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=7 num_layers=16 compress_xattn=False use_bias=False moe_block=True num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=384
+🟦 mlp_hidden_dim=1092
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=12 qkv_bias=False norm_eps=1e-06 hidden_dim=384
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardECMoeを初期化 num_experts=8 expert_capacity=2.0 dim=512 hidden_dim=1092 multiple_of=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(2.3666666666666667) qkv_ratio=np.float64(0.7666666666666666) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=8 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=448
+🟦 mlp_hidden_dim=1211
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=14 qkv_bias=False norm_eps=1e-06 hidden_dim=448
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=1211 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=807
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=1024
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(2.6) qkv_ratio=np.float64(0.8) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=9 num_layers=16 compress_xattn=False use_bias=False moe_block=True num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=448
+🟦 mlp_hidden_dim=1331
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=14 qkv_bias=False norm_eps=1e-06 hidden_dim=448
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardECMoeを初期化 num_experts=8 expert_capacity=2.0 dim=512 hidden_dim=1331 multiple_of=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(2.8333333333333335) qkv_ratio=np.float64(0.8333333333333333) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=10 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=448
+🟦 mlp_hidden_dim=1450
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=14 qkv_bias=False norm_eps=1e-06 hidden_dim=448
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=1450 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=966
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=1024
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(3.066666666666667) qkv_ratio=np.float64(0.8666666666666667) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=11 num_layers=16 compress_xattn=False use_bias=False moe_block=True num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=448
+🟦 mlp_hidden_dim=1570
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=14 qkv_bias=False norm_eps=1e-06 hidden_dim=448
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardECMoeを初期化 num_experts=8 expert_capacity=2.0 dim=512 hidden_dim=1570 multiple_of=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(3.3) qkv_ratio=np.float64(0.9) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=12 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=512
+🟦 mlp_hidden_dim=1689
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=1689 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=1126
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=1280
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(3.533333333333333) qkv_ratio=np.float64(0.9333333333333333) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=13 num_layers=16 compress_xattn=False use_bias=False moe_block=True num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=512
+🟦 mlp_hidden_dim=1809
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardECMoeを初期化 num_experts=8 expert_capacity=2.0 dim=512 hidden_dim=1809 multiple_of=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(3.7666666666666666) qkv_ratio=np.float64(0.9666666666666667) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=14 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=512
+🟦 mlp_hidden_dim=1928
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=1928 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=1285
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=1536
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(4.0) qkv_ratio=np.float64(1.0) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=15 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=512
+🟦 mlp_hidden_dim=2048
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=2048 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=1365
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=1536
+🟩 T2IFinalLayerを初期化 hidden_size=512 time_emb_dim=512 patch_size=2 out_channels=4 act_layer=<function DiT.__init__.<locals>.<lambda> at 0x7e4457605940> norm_final=LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+🟩 重みの初期化を実行
+🟩 2D正弦波位置埋め込みを生成 embed_dim=512 grid_size=16 cls_token=False extra_tokens=0 pos_interp_scale=1.0 base_size=16
+🟩 2D正弦波位置埋め込みを生成 embed_dim=512 grid.shape=(2, 1, 16, 16)
+🟩 1D正弦波位置埋め込みを生成 embed_dim=256 pos.shape=(1, 16, 16)
+🟦 位置インデックス reshaped pos.shape=(256,)
+🟦 位置と周波数の積 out.shape=(256, 128)
+🟦 水平位置埋め込み emb_h.shape=(256, 256)
+🟩 1D正弦波位置埋め込みを生成 embed_dim=256 pos.shape=(1, 16, 16)
+🟦 位置インデックス reshaped pos.shape=(256,)
+🟦 位置と周波数の積 out.shape=(256, 128)
+🟦 垂直位置埋め込み emb_w.shape=(256, 256)
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.014142135623730949
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.014142135623730949
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.014142135623730949
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.01
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.01
+🟩 FeedForwardECMoeの重みをカスタム初期化 init_std=0.01
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.008164965809277261
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.008164965809277261
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.008164965809277261
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.0070710678118654745
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.0070710678118654745
+🟩 FeedForwardECMoeの重みをカスタム初期化 init_std=0.0070710678118654745
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.006324555320336759
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.006324555320336759
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.006324555320336759
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.005773502691896258
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.005773502691896258
+🟩 FeedForwardECMoeの重みをカスタム初期化 init_std=0.005773502691896258
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.005345224838248488
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.005345224838248488
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.005345224838248488
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.005
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.005
+🟩 FeedForwardECMoeの重みをカスタム初期化 init_std=0.005
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.0047140452079103175
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.0047140452079103175
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.0047140452079103175
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.004472135954999579
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.004472135954999579
+🟩 FeedForwardECMoeの重みをカスタム初期化 init_std=0.004472135954999579
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.004264014327112209
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.004264014327112209
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.004264014327112209
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.004082482904638631
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.004082482904638631
+🟩 FeedForwardECMoeの重みをカスタム初期化 init_std=0.004082482904638631
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.003922322702763681
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.003922322702763681
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.003922322702763681
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.003779644730092272
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.003779644730092272
+🟩 FeedForwardECMoeの重みをカスタム初期化 init_std=0.003779644730092272
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.0036514837167011074
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.0036514837167011074
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.0036514837167011074
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 FeedForwardECMoeの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 FeedForwardECMoeの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 AttentionBlockPromptEmbeddingの重みをカスタム初期化 init_std=0.02
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.02
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.02
+🟩 DiTの順伝播（CFGあり） x.shape=torch.Size([1, 4, 32, 32]) t.shape=torch.Size([1]) y.shape=torch.Size([1, 1, 16, 1024]) cfg=1.5 mask_ratio=0.3
+🟦 CFG用にバッチを2倍に拡張 x.shape=torch.Size([2, 4, 32, 32])
+🟦 CFG用にキャプション埋め込みを拡張 y.shape=torch.Size([2, 1, 16, 1024])
+🟩 DiTの順伝播（CFGなし） x.shape=torch.Size([2, 4, 32, 32]) t.shape=torch.Size([1]) y.shape=torch.Size([2, 1, 16, 1024]) mask_ratio=0.3
+🟦 self.h=16
+🟦 self.w=16
+🟦 パッチ埋め込み後のテンソル x.shape=torch.Size([2, 256, 512])
+🟦 タイムステップ埋め込みの順伝播 t.shape=torch.Size([2])
+🟩 タイムステップ埋め込みを作成 t.shape=torch.Size([2]) dim=512 max_period=10000
+🟦 freqs=tensor([1.0000e+00, 9.6466e-01, 9.3057e-01, 8.9769e-01, 8.6596e-01, 8.3536e-01,
+        8.0584e-01, 7.7737e-01, 7.4989e-01, 7.2339e-01, 6.9783e-01, 6.7317e-01,
+        6.4938e-01, 6.2643e-01, 6.0430e-01, 5.8294e-01, 5.6234e-01, 5.4247e-01,
+        5.2330e-01, 5.0481e-01, 4.8697e-01, 4.6976e-01, 4.5316e-01, 4.3714e-01,
+        4.2170e-01, 4.0679e-01, 3.9242e-01, 3.7855e-01, 3.6517e-01, 3.5227e-01,
+        3.3982e-01, 3.2781e-01, 3.1623e-01, 3.0505e-01, 2.9427e-01, 2.8387e-01,
+        2.7384e-01, 2.6416e-01, 2.5483e-01, 2.4582e-01, 2.3714e-01, 2.2876e-01,
+        2.2067e-01, 2.1288e-01, 2.0535e-01, 1.9810e-01, 1.9110e-01, 1.8434e-01,
+        1.7783e-01, 1.7154e-01, 1.6548e-01, 1.5963e-01, 1.5399e-01, 1.4855e-01,
+        1.4330e-01, 1.3824e-01, 1.3335e-01, 1.2864e-01, 1.2409e-01, 1.1971e-01,
+        1.1548e-01, 1.1140e-01, 1.0746e-01, 1.0366e-01, 1.0000e-01, 9.6466e-02,
+        9.3057e-02, 8.9769e-02, 8.6596e-02, 8.3536e-02, 8.0584e-02, 7.7736e-02,
+        7.4989e-02, 7.2339e-02, 6.9783e-02, 6.7317e-02, 6.4938e-02, 6.2643e-02,
+        6.0430e-02, 5.8294e-02, 5.6234e-02, 5.4247e-02, 5.2330e-02, 5.0481e-02,
+        4.8697e-02, 4.6976e-02, 4.5316e-02, 4.3714e-02, 4.2170e-02, 4.0679e-02,
+        3.9242e-02, 3.7855e-02, 3.6517e-02, 3.5227e-02, 3.3982e-02, 3.2781e-02,
+        3.1623e-02, 3.0505e-02, 2.9427e-02, 2.8387e-02, 2.7384e-02, 2.6416e-02,
+        2.5483e-02, 2.4582e-02, 2.3714e-02, 2.2876e-02, 2.2067e-02, 2.1288e-02,
+        2.0535e-02, 1.9810e-02, 1.9110e-02, 1.8434e-02, 1.7783e-02, 1.7154e-02,
+        1.6548e-02, 1.5963e-02, 1.5399e-02, 1.4855e-02, 1.4330e-02, 1.3824e-02,
+        1.3335e-02, 1.2864e-02, 1.2409e-02, 1.1971e-02, 1.1548e-02, 1.1140e-02,
+        1.0746e-02, 1.0366e-02, 1.0000e-02, 9.6466e-03, 9.3057e-03, 8.9769e-03,
+        8.6596e-03, 8.3536e-03, 8.0584e-03, 7.7736e-03, 7.4989e-03, 7.2339e-03,
+        6.9783e-03, 6.7317e-03, 6.4938e-03, 6.2643e-03, 6.0430e-03, 5.8294e-03,
+        5.6234e-03, 5.4247e-03, 5.2330e-03, 5.0481e-03, 4.8697e-03, 4.6976e-03,
+        4.5316e-03, 4.3714e-03, 4.2170e-03, 4.0679e-03, 3.9242e-03, 3.7855e-03,
+        3.6517e-03, 3.5227e-03, 3.3982e-03, 3.2781e-03, 3.1623e-03, 3.0505e-03,
+        2.9427e-03, 2.8387e-03, 2.7384e-03, 2.6416e-03, 2.5483e-03, 2.4582e-03,
+        2.3714e-03, 2.2876e-03, 2.2067e-03, 2.1288e-03, 2.0535e-03, 1.9810e-03,
+        1.9110e-03, 1.8434e-03, 1.7783e-03, 1.7154e-03, 1.6548e-03, 1.5963e-03,
+        1.5399e-03, 1.4855e-03, 1.4330e-03, 1.3824e-03, 1.3335e-03, 1.2864e-03,
+        1.2409e-03, 1.1971e-03, 1.1548e-03, 1.1140e-03, 1.0746e-03, 1.0366e-03,
+        1.0000e-03, 9.6466e-04, 9.3057e-04, 8.9769e-04, 8.6596e-04, 8.3536e-04,
+        8.0584e-04, 7.7736e-04, 7.4989e-04, 7.2339e-04, 6.9783e-04, 6.7317e-04,
+        6.4938e-04, 6.2643e-04, 6.0430e-04, 5.8294e-04, 5.6234e-04, 5.4247e-04,
+        5.2330e-04, 5.0481e-04, 4.8697e-04, 4.6976e-04, 4.5316e-04, 4.3714e-04,
+        4.2170e-04, 4.0679e-04, 3.9242e-04, 3.7855e-04, 3.6517e-04, 3.5227e-04,
+        3.3982e-04, 3.2781e-04, 3.1623e-04, 3.0505e-04, 2.9427e-04, 2.8387e-04,
+        2.7384e-04, 2.6416e-04, 2.5483e-04, 2.4582e-04, 2.3714e-04, 2.2876e-04,
+        2.2067e-04, 2.1288e-04, 2.0535e-04, 1.9810e-04, 1.9110e-04, 1.8434e-04,
+        1.7783e-04, 1.7154e-04, 1.6548e-04, 1.5963e-04, 1.5399e-04, 1.4855e-04,
+        1.4330e-04, 1.3824e-04, 1.3335e-04, 1.2864e-04, 1.2409e-04, 1.1971e-04,
+        1.1548e-04, 1.1140e-04, 1.0746e-04, 1.0366e-04])
+🟦 タイムステップ埋め込みテンソル embedding.shape=torch.Size([2, 512])
+🟦 タイムステップ埋め込み後のテンソル t.shape=torch.Size([2, 512])
+🟩 CaptionProjectionの順伝播 caption.shape=torch.Size([2, 1, 16, 1024])
+🟦 MLPの順伝播 x.shape=torch.Size([2, 1, 16, 1024])
+🟦 MLP fc1後 x.shape=torch.Size([2, 1, 16, 512])
+🟦 MLP fc2後 x.shape=torch.Size([2, 1, 16, 512])
+🟦 変換後のキャプションテンソル result.shape=torch.Size([2, 1, 16, 512])
+🟦 キャプション埋め込み後のテンソル y.shape=torch.Size([2, 1, 16, 512])
+🟩 AttentionBlockPromptEmbeddingの順伝播 x.shape=torch.Size([2, 16, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 16, 512])
+🟦 FeedForwardの順伝播 x.shape=torch.Size([2, 16, 512])
+🟦 前処理後のテキスト埋め込みテンソル y.shape=torch.Size([2, 1, 16, 512])
+🟦 MLPの順伝播 x.shape=torch.Size([2, 512])
+🟦 MLP fc1後 x.shape=torch.Size([2, 512])
+🟦 MLP fc2後 x.shape=torch.Size([2, 512])
+🟦 テキスト埋め込みを加算後のタイムステップテンソル t.shape=torch.Size([2, 512])
+🟦 Patch-Mixer入力マッピング後のテンソル x.shape=torch.Size([2, 256, 512])
+🟦 Patch-Mixerテキスト埋め込みマッピング後のテンソル y_mixer.shape=torch.Size([2, 1, 16, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 256, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 256, 512])
+🟦 FeedForwardの順伝播 x.shape=torch.Size([2, 256, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 256, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 256, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 256, 512])
+🟩 FeedForwardECMoeの順伝播 x.shape=torch.Size([2, 256, 512])
+🟦 tokens_per_expert=64
+🟦 ルーティングマスク p.shape=torch.Size([2, 8, 64, 256])
+🟦 専門家への分配 xin.shape=torch.Size([2, 8, 64, 512])
+🟦 専門家の最初の線形層後 h.shape=torch.Size([2, 8, 64, 2048])
+🟦 専門家の出力線形層後 h.shape=torch.Size([2, 8, 64, 512])
+🟦 重み付け後 out.shape=torch.Size([2, 8, 64, 512])
+🟦 最終出力 out.shape=torch.Size([2, 256, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 256, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 256, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 256, 512])
+🟦 FeedForwardの順伝播 x.shape=torch.Size([2, 256, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 256, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 256, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 256, 512])
+🟩 FeedForwardECMoeの順伝播 x.shape=torch.Size([2, 256, 512])
+🟦 tokens_per_expert=64
+🟦 ルーティングマスク p.shape=torch.Size([2, 8, 64, 256])
+🟦 専門家への分配 xin.shape=torch.Size([2, 8, 64, 512])
+🟦 専門家の最初の線形層後 h.shape=torch.Size([2, 8, 64, 2048])
+🟦 専門家の出力線形層後 h.shape=torch.Size([2, 8, 64, 512])
+🟦 重み付け後 out.shape=torch.Size([2, 8, 64, 512])
+🟦 最終出力 out.shape=torch.Size([2, 256, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 256, 512])
+🟦 Patch-Mixer適用後のテンソル x.shape=torch.Size([2, 256, 512])
+🟩 マスクを生成 batch=2 length=256 mask_ratio=0.3 device=device(type='cpu')
+🟦 len_keep=179
+🟩 トークンをマスクアウト x.shape=torch.Size([2, 256, 512]) ids_keep.shape=torch.Size([2, 179])
+🟦 マスク後のテンソル x_masked.shape=torch.Size([2, 179, 512])
+🟦 マスクアウト後のテンソル x.shape=torch.Size([2, 179, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 179, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 FeedForwardの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 179, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 179, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 179, 512])
+🟩 FeedForwardECMoeの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 tokens_per_expert=44
+🟦 ルーティングマスク p.shape=torch.Size([2, 8, 44, 179])
+🟦 専門家への分配 xin.shape=torch.Size([2, 8, 44, 512])
+🟦 専門家の最初の線形層後 h.shape=torch.Size([2, 8, 44, 512])
+🟦 専門家の出力線形層後 h.shape=torch.Size([2, 8, 44, 512])
+🟦 重み付け後 out.shape=torch.Size([2, 8, 44, 512])
+🟦 最終出力 out.shape=torch.Size([2, 179, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 179, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 179, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 FeedForwardの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 179, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 179, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 179, 512])
+🟩 FeedForwardECMoeの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 tokens_per_expert=44
+🟦 ルーティングマスク p.shape=torch.Size([2, 8, 44, 179])
+🟦 専門家への分配 xin.shape=torch.Size([2, 8, 44, 512])
+🟦 専門家の最初の線形層後 h.shape=torch.Size([2, 8, 44, 768])
+🟦 専門家の出力線形層後 h.shape=torch.Size([2, 8, 44, 512])
+🟦 重み付け後 out.shape=torch.Size([2, 8, 44, 512])
+🟦 最終出力 out.shape=torch.Size([2, 179, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 179, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 179, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 FeedForwardの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 179, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 179, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 179, 512])
+🟩 FeedForwardECMoeの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 tokens_per_expert=44
+🟦 ルーティングマスク p.shape=torch.Size([2, 8, 44, 179])
+🟦 専門家への分配 xin.shape=torch.Size([2, 8, 44, 512])
+🟦 専門家の最初の線形層後 h.shape=torch.Size([2, 8, 44, 1024])
+🟦 専門家の出力線形層後 h.shape=torch.Size([2, 8, 44, 512])
+🟦 重み付け後 out.shape=torch.Size([2, 8, 44, 512])
+🟦 最終出力 out.shape=torch.Size([2, 179, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 179, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 179, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 FeedForwardの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 179, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 179, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 179, 512])
+🟩 FeedForwardECMoeの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 tokens_per_expert=44
+🟦 ルーティングマスク p.shape=torch.Size([2, 8, 44, 179])
+🟦 専門家への分配 xin.shape=torch.Size([2, 8, 44, 512])
+🟦 専門家の最初の線形層後 h.shape=torch.Size([2, 8, 44, 1280])
+🟦 専門家の出力線形層後 h.shape=torch.Size([2, 8, 44, 512])
+🟦 重み付け後 out.shape=torch.Size([2, 8, 44, 512])
+🟦 最終出力 out.shape=torch.Size([2, 179, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 179, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 179, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 FeedForwardの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 179, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 179, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 179, 512])
+🟩 FeedForwardECMoeの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 tokens_per_expert=44
+🟦 ルーティングマスク p.shape=torch.Size([2, 8, 44, 179])
+🟦 専門家への分配 xin.shape=torch.Size([2, 8, 44, 512])
+🟦 専門家の最初の線形層後 h.shape=torch.Size([2, 8, 44, 1536])
+🟦 専門家の出力線形層後 h.shape=torch.Size([2, 8, 44, 512])
+🟦 重み付け後 out.shape=torch.Size([2, 8, 44, 512])
+🟦 最終出力 out.shape=torch.Size([2, 179, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 179, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 179, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 FeedForwardの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 179, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 179, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 179, 512])
+🟩 FeedForwardECMoeの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 tokens_per_expert=44
+🟦 ルーティングマスク p.shape=torch.Size([2, 8, 44, 179])
+🟦 専門家への分配 xin.shape=torch.Size([2, 8, 44, 512])
+🟦 専門家の最初の線形層後 h.shape=torch.Size([2, 8, 44, 1792])
+🟦 専門家の出力線形層後 h.shape=torch.Size([2, 8, 44, 512])
+🟦 重み付け後 out.shape=torch.Size([2, 8, 44, 512])
+🟦 最終出力 out.shape=torch.Size([2, 179, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 179, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 179, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 FeedForwardの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 179, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 179, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 179, 512])
+🟩 FeedForwardECMoeの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 tokens_per_expert=44
+🟦 ルーティングマスク p.shape=torch.Size([2, 8, 44, 179])
+🟦 専門家への分配 xin.shape=torch.Size([2, 8, 44, 512])
+🟦 専門家の最初の線形層後 h.shape=torch.Size([2, 8, 44, 2048])
+🟦 専門家の出力線形層後 h.shape=torch.Size([2, 8, 44, 512])
+🟦 重み付け後 out.shape=torch.Size([2, 8, 44, 512])
+🟦 最終出力 out.shape=torch.Size([2, 179, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 179, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 179, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 FeedForwardの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 179, 512])
+🟩 DiTBlockの順伝播 x.shape=torch.Size([2, 179, 512]) y.shape=torch.Size([2, 1, 16, 512]) c.shape=torch.Size([2, 512])
+🟦 shift_msa.shape=torch.Size([2, 512]) scale_msa.shape=torch.Size([2, 512]) gate_msa.shape=torch.Size([2, 512]) shift_mlp.shape=torch.Size([2, 512]) scale_mlp.shape=torch.Size([2, 512]) gate_mlp.shape=torch.Size([2, 512])
+🟦 マルチヘッドセルフアテンションの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 FeedForwardの順伝播 x.shape=torch.Size([2, 179, 512])
+🟦 DiTBlock出力テンソル x.shape=torch.Size([2, 179, 512])
+🟩 T2IFinalLayerの順伝播 x.shape=torch.Size([2, 179, 512]) c.shape=torch.Size([2, 512])
+🟦 T2IFinalLayer出力テンソル x.shape=torch.Size([2, 179, 16])
+🟦 最終出力層適用後のテンソル x.shape=torch.Size([2, 179, 16])
+🟩 マスクトークンを補完して元の順序を復元 x.shape=torch.Size([2, 179, 16]) ids_restore.shape=torch.Size([2, 256]) mask_token.shape=torch.Size([1, 1, 16])
+🟦 補完用マスクトークンテンソル mask_tokens.shape=torch.Size([2, 77, 16])
+🟦 マスクトークンを連結後のテンソル x_.shape=torch.Size([2, 256, 16])
+🟩 パッチを元の画像に復元 x.shape=torch.Size([2, 256, 16])
+🟦 c=4
+🟦 p=2
+🟦 h=16 w=16
+🟦 パッチを正しい位置に配置後のテンソル x.shape=torch.Size([2, 4, 16, 2, 16, 2])
+🟦 復元された画像テンソル result.shape=torch.Size([2, 4, 32, 32])
+🟦 パッチ再構成後のテンソル x.shape=torch.Size([2, 4, 32, 32])
+🟦 条件付きと無条件の出力に分割 cond_eps.shape=torch.Size([1, 4, 32, 32]) uncond_eps.shape=torch.Size([1, 4, 32, 32])
+🟦 CFGを適用した最終出力テンソル eps.shape=torch.Size([1, 4, 32, 32])
+🟩 MicroDiT_Tiny_2の出力テンソル output['sample'].shape=torch.Size([1, 4, 32, 32])
+🟩 Latent Diffusionモデルを作成: vae_name='stabilityai/stable-diffusion-xl-base-1.0', text_encoder_name='openclip:hf-hub:apple/DFN5B-CLIP-ViT-H-14-378', dit_arch='MicroDiT_Tiny_2', latent_res=32, in_channels=4, pos_interp_scale=1.0, dtype='bfloat16', precomputed_latents=True, p_mean=-0.6, p_std=1.2, train_mask_ratio=0.75
+🟩 DiTを初期化 input_size=32 patch_size=2 in_channels=4 dim=512 depth=16 head_dim=32 multiple_of=256 caption_channels=1024 pos_interp_scale=1.0 norm_eps=1e-06 depth_init=True qkv_multipliers=array([0.5       , 0.53333333, 0.56666667, 0.6       , 0.63333333,
+       0.66666667, 0.7       , 0.73333333, 0.76666667, 0.8       ,
+       0.83333333, 0.86666667, 0.9       , 0.93333333, 0.96666667,
+       1.        ]) ffn_multipliers=array([0.5       , 0.73333333, 0.96666667, 1.2       , 1.43333333,
+       1.66666667, 1.9       , 2.13333333, 2.36666667, 2.6       ,
+       2.83333333, 3.06666667, 3.3       , 3.53333333, 3.76666667,
+       4.        ]) use_patch_mixer=True patch_mixer_depth=4 patch_mixer_dim=512 patch_mixer_qkv_ratio=1.0 patch_mixer_mlp_ratio=4.0 use_bias=False num_experts=8 expert_capacity=2.0 experts_every_n=2
+🟦 self.base_size=16
+🟩 CaptionProjectionを初期化 in_channels=1024 hidden_size=512 act_layer=<function DiT.__init__.<locals>.<lambda> at 0x7e44571f7b00> norm_layer=LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+🟩 MLPを初期化 in_features=1024 hidden_features=512 out_features=512 act_layer=<function DiT.__init__.<locals>.<lambda> at 0x7e44571f7b00> norm_layer=LayerNorm((512,), eps=1e-06, elementwise_affine=True) bias=True
+🟩 AttentionBlockPromptEmbeddingを初期化 dim=512 head_dim=32 mlp_ratio=4.0 multiple_of=256 norm_eps=1e-06 use_bias=False
+🟦 self.num_heads=16
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=None
+🟦 self.head_dim=32
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=2048 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=1365
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=1536
+🟩 MLPを初期化 in_features=512 hidden_features=512 out_features=512 act_layer=<function DiT.__init__.<locals>.<lambda> at 0x7e44571f7b00> norm_layer=LayerNorm((512,), eps=1e-06, elementwise_affine=True) bias=True
+🟦 expert_blocks_idx=[1, 3]
+🟦 is_moe_block=[False, True, False, True]
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=4.0 qkv_ratio=1.0 multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=False layer_id=0 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=512
+🟦 mlp_hidden_dim=2048
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=2048 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=1365
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=1536
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=4.0 qkv_ratio=1.0 multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=False layer_id=0 num_layers=16 compress_xattn=False use_bias=False moe_block=True num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=512
+🟦 mlp_hidden_dim=2048
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardECMoeを初期化 num_experts=8 expert_capacity=2.0 dim=512 hidden_dim=2048 multiple_of=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=4.0 qkv_ratio=1.0 multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=False layer_id=0 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=512
+🟦 mlp_hidden_dim=2048
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=2048 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=1365
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=1536
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=4.0 qkv_ratio=1.0 multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=False layer_id=0 num_layers=16 compress_xattn=False use_bias=False moe_block=True num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=512
+🟦 mlp_hidden_dim=2048
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardECMoeを初期化 num_experts=8 expert_capacity=2.0 dim=512 hidden_dim=2048 multiple_of=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(0.5) qkv_ratio=np.float64(0.5) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=0 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=256
+🟦 mlp_hidden_dim=256
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=8 qkv_bias=False norm_eps=1e-06 hidden_dim=256
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=256 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=170
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(0.7333333333333334) qkv_ratio=np.float64(0.5333333333333333) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=1 num_layers=16 compress_xattn=False use_bias=False moe_block=True num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=320
+🟦 mlp_hidden_dim=375
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=10 qkv_bias=False norm_eps=1e-06 hidden_dim=320
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardECMoeを初期化 num_experts=8 expert_capacity=2.0 dim=512 hidden_dim=375 multiple_of=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(0.9666666666666667) qkv_ratio=np.float64(0.5666666666666667) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=2 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=320
+🟦 mlp_hidden_dim=494
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=10 qkv_bias=False norm_eps=1e-06 hidden_dim=320
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=494 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=329
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=512
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(1.2) qkv_ratio=np.float64(0.6) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=3 num_layers=16 compress_xattn=False use_bias=False moe_block=True num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=320
+🟦 mlp_hidden_dim=614
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=10 qkv_bias=False norm_eps=1e-06 hidden_dim=320
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardECMoeを初期化 num_experts=8 expert_capacity=2.0 dim=512 hidden_dim=614 multiple_of=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(1.4333333333333333) qkv_ratio=np.float64(0.6333333333333333) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=4 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=384
+🟦 mlp_hidden_dim=733
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=12 qkv_bias=False norm_eps=1e-06 hidden_dim=384
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=733 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=488
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=512
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(1.6666666666666667) qkv_ratio=np.float64(0.6666666666666666) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=5 num_layers=16 compress_xattn=False use_bias=False moe_block=True num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=384
+🟦 mlp_hidden_dim=853
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=12 qkv_bias=False norm_eps=1e-06 hidden_dim=384
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardECMoeを初期化 num_experts=8 expert_capacity=2.0 dim=512 hidden_dim=853 multiple_of=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(1.9) qkv_ratio=np.float64(0.7) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=6 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=384
+🟦 mlp_hidden_dim=972
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=12 qkv_bias=False norm_eps=1e-06 hidden_dim=384
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=972 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=648
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=768
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(2.1333333333333333) qkv_ratio=np.float64(0.7333333333333334) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=7 num_layers=16 compress_xattn=False use_bias=False moe_block=True num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=384
+🟦 mlp_hidden_dim=1092
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=12 qkv_bias=False norm_eps=1e-06 hidden_dim=384
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardECMoeを初期化 num_experts=8 expert_capacity=2.0 dim=512 hidden_dim=1092 multiple_of=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(2.3666666666666667) qkv_ratio=np.float64(0.7666666666666666) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=8 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=448
+🟦 mlp_hidden_dim=1211
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=14 qkv_bias=False norm_eps=1e-06 hidden_dim=448
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=1211 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=807
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=1024
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(2.6) qkv_ratio=np.float64(0.8) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=9 num_layers=16 compress_xattn=False use_bias=False moe_block=True num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=448
+🟦 mlp_hidden_dim=1331
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=14 qkv_bias=False norm_eps=1e-06 hidden_dim=448
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardECMoeを初期化 num_experts=8 expert_capacity=2.0 dim=512 hidden_dim=1331 multiple_of=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(2.8333333333333335) qkv_ratio=np.float64(0.8333333333333333) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=10 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=448
+🟦 mlp_hidden_dim=1450
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=14 qkv_bias=False norm_eps=1e-06 hidden_dim=448
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=1450 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=966
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=1024
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(3.066666666666667) qkv_ratio=np.float64(0.8666666666666667) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=11 num_layers=16 compress_xattn=False use_bias=False moe_block=True num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=448
+🟦 mlp_hidden_dim=1570
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=14 qkv_bias=False norm_eps=1e-06 hidden_dim=448
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardECMoeを初期化 num_experts=8 expert_capacity=2.0 dim=512 hidden_dim=1570 multiple_of=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(3.3) qkv_ratio=np.float64(0.9) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=12 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=512
+🟦 mlp_hidden_dim=1689
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=1689 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=1126
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=1280
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(3.533333333333333) qkv_ratio=np.float64(0.9333333333333333) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=13 num_layers=16 compress_xattn=False use_bias=False moe_block=True num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=512
+🟦 mlp_hidden_dim=1809
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardECMoeを初期化 num_experts=8 expert_capacity=2.0 dim=512 hidden_dim=1809 multiple_of=256
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(3.7666666666666666) qkv_ratio=np.float64(0.9666666666666667) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=14 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=512
+🟦 mlp_hidden_dim=1928
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=1928 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=1285
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=1536
+🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(4.0) qkv_ratio=np.float64(1.0) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=15 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
+🟦 qkv_hidden_dim=512
+🟦 mlp_hidden_dim=2048
+🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟦 self.head_dim=32
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 FeedForwardブロックを初期化 dim=512 hidden_dim=2048 multiple_of=256 use_bias=False
+🟦 FeedForward隠れ次元調整前 hidden_dim=1365
+🟦 FeedForward隠れ次元調整後 self.hidden_dim=1536
+🟩 T2IFinalLayerを初期化 hidden_size=512 time_emb_dim=512 patch_size=2 out_channels=4 act_layer=<function DiT.__init__.<locals>.<lambda> at 0x7e44571f7b00> norm_final=LayerNorm((512,), eps=1e-06, elementwise_affine=True)
+🟩 重みの初期化を実行
+🟩 2D正弦波位置埋め込みを生成 embed_dim=512 grid_size=16 cls_token=False extra_tokens=0 pos_interp_scale=1.0 base_size=16
+🟩 2D正弦波位置埋め込みを生成 embed_dim=512 grid.shape=(2, 1, 16, 16)
+🟩 1D正弦波位置埋め込みを生成 embed_dim=256 pos.shape=(1, 16, 16)
+🟦 位置インデックス reshaped pos.shape=(256,)
+🟦 位置と周波数の積 out.shape=(256, 128)
+🟦 水平位置埋め込み emb_h.shape=(256, 256)
+🟩 1D正弦波位置埋め込みを生成 embed_dim=256 pos.shape=(1, 16, 16)
+🟦 位置インデックス reshaped pos.shape=(256,)
+🟦 位置と周波数の積 out.shape=(256, 128)
+🟦 垂直位置埋め込み emb_w.shape=(256, 256)
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.014142135623730949
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.014142135623730949
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.014142135623730949
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.01
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.01
+🟩 FeedForwardECMoeの重みをカスタム初期化 init_std=0.01
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.008164965809277261
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.008164965809277261
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.008164965809277261
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.0070710678118654745
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.0070710678118654745
+🟩 FeedForwardECMoeの重みをカスタム初期化 init_std=0.0070710678118654745
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.006324555320336759
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.006324555320336759
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.006324555320336759
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.005773502691896258
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.005773502691896258
+🟩 FeedForwardECMoeの重みをカスタム初期化 init_std=0.005773502691896258
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.005345224838248488
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.005345224838248488
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.005345224838248488
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.005
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.005
+🟩 FeedForwardECMoeの重みをカスタム初期化 init_std=0.005
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.0047140452079103175
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.0047140452079103175
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.0047140452079103175
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.004472135954999579
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.004472135954999579
+🟩 FeedForwardECMoeの重みをカスタム初期化 init_std=0.004472135954999579
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.004264014327112209
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.004264014327112209
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.004264014327112209
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.004082482904638631
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.004082482904638631
+🟩 FeedForwardECMoeの重みをカスタム初期化 init_std=0.004082482904638631
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.003922322702763681
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.003922322702763681
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.003922322702763681
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.003779644730092272
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.003779644730092272
+🟩 FeedForwardECMoeの重みをカスタム初期化 init_std=0.003779644730092272
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.0036514837167011074
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.0036514837167011074
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.0036514837167011074
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 FeedForwardECMoeの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 DiTBlockの重みをカスタム初期化
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 CrossAttentionの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 FeedForwardECMoeの重みをカスタム初期化 init_std=0.0035355339059327372
+🟩 AttentionBlockPromptEmbeddingの重みをカスタム初期化 init_std=0.02
+🟩 SelfAttentionの重みをカスタム初期化 init_std=0.02
+🟩 FeedForwardの重みをカスタム初期化 init_std=0.02
+🟩 UniversalTextEncoderを初期化: name='openclip:hf-hub:apple/DFN5B-CLIP-ViT-H-14-378', dtype='bfloat16', pretrained=True
+🟩 Parsing model identifier. Schema: hf-hub, Identifier: apple/DFN5B-CLIP-ViT-H-14-378
+🟩 Attempting to load config from HF Hub: apple/DFN5B-CLIP-ViT-H-14-378
+🟩 Loaded model config from HF Hub: apple/DFN5B-CLIP-ViT-H-14-378
+🟩 Found default weights file on HF Hub: /root/.cache/huggingface/hub/models--apple--DFN5B-CLIP-ViT-H-14-378/snapshots/01b771ed0d1395ca5ffdd279897d665ebe00dfd2/open_clip_pytorch_model.bin
+🟩 Instantiating model architecture: CLIP
+🟩 Loading full pretrained weights from: /root/.cache/huggingface/hub/models--apple--DFN5B-CLIP-ViT-H-14-378/snapshots/01b771ed0d1395ca5ffdd279897d665ebe00dfd2/open_clip_pytorch_model.bin
+🟩 Final image preprocessing configuration set: {'size': (378, 378), 'mode': 'RGB', 'mean': [0.48145466, 0.4578275, 0.40821073], 'std': [0.26862954, 0.26130258, 0.27577711], 'interpolation': 'bicubic', 'resize_mode': 'squash', 'fill_color': 0}
+🟩 Model hf-hub:apple/DFN5B-CLIP-ViT-H-14-378 creation process complete.
+🟩 OpenCLIPテキストエンコーダーのラッパーを初期化: dtype=torch.float32
+🟩 UniversalTokenizerを初期化: name='openclip:hf-hub:apple/DFN5B-CLIP-ViT-H-14-378'
+🟩 Parsing tokenizer identifier. Schema: hf-hub, Identifier: apple/DFN5B-CLIP-ViT-H-14-378
+🟩 Attempting to load config from hf-hub:apple/DFN5B-CLIP-ViT-H-14-378
+🟩 Using default SimpleTokenizer.
+🟩 OpenCLIPトークナイザーのラッパーを初期化
+🟩 LatentDiffusionモデルを初期化: dtype='bfloat16', latent_res=32, precomputed_latents=True, train_mask_ratio=0.75
