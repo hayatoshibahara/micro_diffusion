@@ -180,7 +180,7 @@
 🟦 mlp_hidden_dim=1570
 🟩 マルチヘッドセルフアテンションを初期化 dim=512 num_heads=14 qkv_bias=False norm_eps=1e-06 hidden_dim=448
 🟦 self.head_dim=32
-🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=1e-06 hidden_dim=512
+🟩 マルチヘッドクロスアテンションを初期化 dim=512 num_heads=16 qkv_bias=False norm_eps=2e-06 hidden_dim=512
 🟩 FeedForwardECMoeを初期化 num_experts=8 expert_capacity=2.0 dim=512 hidden_dim=1570 multiple_of=256
 🟩 DiTBlockを初期化 dim=512 head_dim=32 mlp_ratio=np.float64(3.3) qkv_ratio=np.float64(0.9) multiple_of=256 pooled_emb_dim=512 norm_eps=1e-06 depth_init=True layer_id=12 num_layers=16 compress_xattn=False use_bias=False moe_block=False num_experts=8 expert_capacity=2.0
 🟦 qkv_hidden_dim=512
